@@ -1,7 +1,16 @@
-const colors = require('colors');
+require('colors');
+const { inquireMenu } = require('./helpers/inquirer');
+const { pausa } = require('./helpers/mensajes');
 
 const main = async () => {
-	console.log('hi'.blue);
+	let opt = '';
+
+	do {
+		await inquireMenu().then((answers) => {
+			console.info('Answer:', answers);
+		});
+	} while (opt !== '0');
 };
+
 console.clear();
 main();
