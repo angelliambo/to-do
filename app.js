@@ -6,9 +6,7 @@ const main = async () => {
 	let opt = '';
 
 	do {
-		await inquireMenu().then((answers) => {
-			console.info('Answer:', answers);
-		});
+		await inquireMenu();
 	} while (opt !== '0');
 };
 
