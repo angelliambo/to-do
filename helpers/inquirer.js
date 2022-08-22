@@ -1,38 +1,6 @@
 const inquirer = require('inquirer');
 require('colors');
 
-const preguntas = [
-	{
-		type: 'list',
-		name: 'opcion',
-		message: '¿Que desea hacer?',
-		choises: [
-			{ value: '1', message: '1.Crear tarea' },
-
-			{ value: '2', message: '2.Listar tareas' },
-
-			{
-				value: '3',
-				message: '3.Listar tareas completadas',
-			},
-
-			{
-				value: '4',
-				message: '4.Listar tareas pendientes',
-			},
-
-			{
-				value: '5',
-				message: '5.Completar tarea(s)',
-			},
-
-			{ value: '6', message: '6.Borrar tarea' },
-
-			{ value: '0', message: '0.Salir' },
-		],
-	},
-];
-
 const inquireMenu = async () => {
 	console.clear();
 	console.log('==========================='.blue);
@@ -76,6 +44,19 @@ const inquireMenu = async () => {
 		});
 };
 
+const pausa = async () => {
+	console.log('\n');
+	const enter = inquirer.prompt([
+		{
+			type: 'input',
+			name: 'enter',
+			message: `Presione ${'Enter'.green} para continuar`,
+		},
+	]);
+	return enter;
+};
+
 module.exports = {
 	inquireMenu,
+	pausa,
 };
